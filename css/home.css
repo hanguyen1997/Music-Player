@@ -1,0 +1,28 @@
+.icon_play_home i{
+	font-size: 250px;
+	border-radius: 120px;
+}
+.icon_play_home i:hover{
+    background-color: #676c6f;
+    box-shadow: -1px 17px 24px -6px rgba(0,0,0,.2);
+}
+.header-home{
+	width: 100%;
+    text-align: center;
+}
+.footer_home{
+	margin-top: 165px;
+}
+.github a i{
+	font-size: 60px;
+    color: #b9b9b9;
+    margin-left: 35px;
+    float: left;
+}
+.soundcloud a i{
+	font-size: 60px;
+    color: #b9b9b9;
+    margin-right: 35px;
+    float: right;
+}
+

@@ -1,0 +1,90 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "Sarabun",sans-serif;
+}
+.container{
+	width: 100%;
+    height: 100vh;
+    font-style: normal;
+    background-color: #E5ecf2;
+}
+.box{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 355px;
+    background-color: #f2f7fd;
+    border-radius: 35px;
+    height: 700px;
+    box-shadow: -1px 17px 24px -6px rgba(0,0,0,.2);
+}
+.hidden-header{
+    visibility: hidden;
+}
+.header{
+	width: 100%;
+    height: 76px;
+    text-align: center;
+}
+.header p{
+	text-align: center;
+}
+.button-back{
+	width: 25%;
+    float: left;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+.button-back img {
+    width: 37%;
+    height: 34px;
+    object-fit: cover;
+    margin-left: 21px;
+    margin-top: 10px;
+    border: 1px solid;
+    border-outset.: 11px;
+    border-style: outset;
+    border-width: 2px;
+    border-color: #e3e8ed;
+    border-radius: 10px;
+}
+.button-back img:hover{
+    background-color: #E5ecf2;
+    box-shadow: -1px 17px 24px -6px rgba(0,0,0,.2);
+}
+.text-header{
+	width: 50%;
+    float: left;
+    box-sizing: border-box;
+}
+.text-header p {
+    font-size: 25px;
+    font-weight: bold;
+}
+.button-about{
+	width: 25%;
+    float: left;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+.button-about p{
+    width: 37%;
+    height: 34px;
+    margin-left: 28px;
+    margin-top: 10px;
+    border-outset.: 11px;
+    border-style: outset;
+    border-width: 2px;
+    border-color: #e3e8ed;
+    border-radius: 10px;
+}
+.button-about p:hover{
+    background-color: #E5ecf2;
+    box-shadow: -1px 17px 24px -6px rgba(0,0,0,.2);
+}
+.content{
+    width: 100%;
+    height: 620px;
+}
