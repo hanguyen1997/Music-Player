@@ -1,0 +1,70 @@
+.box-list{
+	z-index: 1;
+    position: relative;
+    text-align: center;
+    padding: 0px 20px 0px 20px;
+}
+.header-list h1{
+    font-size: 25px;
+}
+.header-list p{
+	color: #928e8e;
+}
+.content-list{
+	width: 100%;
+    overflow-y: auto;
+    height: 482px;
+    margin-top: 20px;
+    
+}
+.content-list::-webkit-scrollbar {
+    display: none;
+}
+.box-content{
+	width: 100%;
+    height: 80px;
+    border-top: 0.5px solid #b6bcc8;
+    box-sizing: border-box;
+    padding: 10px 0px;
+}
+.box-content:hover{
+	background-color: #E5ecf2;
+}
+.img-box-content-list{
+    width: 18%;
+    height: 100%;
+    float: left;
+}
+.img-box-content-list img {
+	width: 100%;
+	border-radius: 30px
+}
+.text-box-content-list{
+	width: 80%;
+    height: 100%;
+    float: left;
+    text-align: left;
+    padding-left: 2px;
+}
+.title-song{
+	font-size: initial;
+    font-weight: bold;
+    padding: 5px 0px 0px 5px;
+    height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.composed{
+	font-size: 13px;
+    color: #928e8e;
+    padding: 5px 0px 0px 5px;
+    height: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}

@@ -3,6 +3,12 @@ body{
 	padding: 0;
 	font-family: "Sarabun",sans-serif;
 }
+p{
+    margin: 0;
+}
+.clear{
+    clear: both;
+}
 .container{
 	width: 100%;
     height: 100vh;
@@ -20,6 +26,12 @@ body{
     height: 700px;
     box-shadow: -1px 17px 24px -6px rgba(0,0,0,.2);
 }
+.true {
+    display: block !important;
+}
+.false {
+    display: none !important;
+}
 .hidden-header{
     visibility: hidden;
 }
@@ -31,60 +43,77 @@ body{
 .header p{
 	text-align: center;
 }
-.button-back{
-	width: 25%;
-    float: left;
-    box-sizing: border-box;
-    margin-top: 10px;
+.title_active{
+    animation: 1.5s ease-out 0s 1 FromLeft;
 }
-.button-back img {
-    width: 37%;
+.button-back{
+	width: 9%;
     height: 34px;
     object-fit: cover;
     margin-left: 21px;
-    margin-top: 10px;
+    margin-top: 20px;
     border: 1px solid;
-    border-outset.: 11px;
     border-style: outset;
     border-width: 2px;
     border-color: #e3e8ed;
     border-radius: 10px;
+    float: left;
 }
-.button-back img:hover{
+.button-back i {
+    padding-top: 10px;
+}
+.button-back:hover{
     background-color: #E5ecf2;
     box-shadow: -1px 17px 24px -6px rgba(0,0,0,.2);
 }
 .text-header{
-	width: 50%;
+	width: 67%;
     float: left;
     box-sizing: border-box;
 }
 .text-header p {
-    font-size: 25px;
+    font-size: 15px;
     font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
 }
 .button-about{
-	width: 25%;
-    float: left;
-    box-sizing: border-box;
-    margin-top: 10px;
-}
-.button-about p{
-    width: 37%;
+	width: 9%;
     height: 34px;
-    margin-left: 28px;
-    margin-top: 10px;
-    border-outset.: 11px;
+    object-fit: cover;
+    margin-right: 21px;
+    margin-top: 20px;
+    border: 1px solid;
     border-style: outset;
     border-width: 2px;
     border-color: #e3e8ed;
     border-radius: 10px;
+    float: right;
 }
-.button-about p:hover{
+.button-about i{
+    padding-top: 10px;
+}
+.button-about:hover{
     background-color: #E5ecf2;
     box-shadow: -1px 17px 24px -6px rgba(0,0,0,.2);
 }
 .content{
     width: 100%;
     height: 620px;
+}
+@keyframes FromLeft {
+  0% {
+    transform: translateX(40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes FromTop {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

@@ -1,9 +1,22 @@
+.box-home{
+    display: none;
+}
+.header-home h1{
+   animation: 1s ease-out 0s 1 FromTop;
+}
+.header-home p{
+   animation: 1s ease-out 0s 1 FromTop;
+}
+.icon_play_home{
+    margin-top: 40px;
+}
 .icon_play_home i{
 	font-size: 250px;
 	border-radius: 120px;
+    animation: 1s ease-out 0s 1 FromTop;
 }
 .icon_play_home i:hover{
-    background-color: #676c6f;
+    background-color: #c7bebe;
     box-shadow: -1px 17px 24px -6px rgba(0,0,0,.2);
 }
 .header-home{
@@ -11,18 +24,19 @@
     text-align: center;
 }
 .footer_home{
-	margin-top: 165px;
+	margin-top: 140px;
 }
 .github a i{
 	font-size: 60px;
     color: #b9b9b9;
     margin-left: 35px;
     float: left;
+    animation: 1s ease-out 0s 1 FromTop;
 }
 .soundcloud a i{
 	font-size: 60px;
     color: #b9b9b9;
     margin-right: 35px;
     float: right;
+    animation: 1s ease-out 0s 1 FromTop;
 }
-

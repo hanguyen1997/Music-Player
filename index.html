@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="icon-font/fontawesome/css/all.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/home.css" />
-
+    <link rel="stylesheet" href="css/list.css" />
+    <link rel="shortcut icon" href="images/logo.gif">
     <title>Music Player</title>
   </head>
   <body>
@@ -18,49 +19,208 @@
     <div class="container">
   		<div class="box">
         <!-- header -->
-        <div class="header hidden-header">
-          <div class="button-back">
-            <img onclick="button_back()" src="images/back.png">
+        <div id="header" class="header hidden-header">
+          <div onclick="button_back()" class="button-back">
+            <i class="fas fa-long-arrow-alt-left"></i>
+            <!-- <img onclick="button_back()" src="images/back.png"> -->
           </div>
           <div class="text-header">
-            <p>Now playing</p>
+            <p id="title" class="title" >Play List</p>
           </div>
           <div class="button-about">
-            <p>...</p>
+            <i class="far fa-address-card"></i>
           </div>
         </div>
 
         <!-- content -->
         <div class="content">
-          <div class="box-home">
+          <!-- begin: home -->
+          <div id="box-home" class="box-home true">
             <!-- header -->
             <div class="header-home">
               <h1>Music Player</h1>
               <p>made with SoundCloud API</p>
               <div class="icon_play_home">
-                <i class="fas fa-play-circle"></i>
+                <i onclick="button_play()" class="fas fa-play-circle"></i>
               </div>
             </div>
             <div class="footer_home">
               <div class="github">
-                <a href="">
+                <a href="https://github.com/hanguyen1997/Music-Player">
                   <i class="fab fa-github-square"></i>
                 </a>
               </div>
               <div class="soundcloud">
-                <a href="">
+                <a href="https://developers.soundcloud.com/docs/api">
                   <i class="fab fa-soundcloud"></i>
                 </a>
               </div>
             </div>
           </div>
-        </div>
-    </div>
+          <!-- end: home -->
+
+          <!-- begin: page list -->
+          <div id="box-list" class="box-list false">
+            <div class="header-list">
+              <h1>Bring music to life</h1>
+              <p>by HaNguyen</p>
+            </div>
+            <div class="content-list">
+              <div class="box-content">
+                <div class="img-box-content-list">
+                  <img src="https://i1.sndcdn.com/artworks-000516994095-x8z6us-t500x500.jpg">
+                </div>
+                <div class="text-box-content-list">
+                  <p class="title-song">Đội Kèn Tí Hon Remix 2019</p>
+                  <p class="composed">Prod By TiLo Ft Long Nhật Ft Chivas Nhí</p>
+                </div>
+               
+                <div class="clear"></div>
+              </div>
+
+              <div class="box-content">
+                <div class="img-box-content-list">
+                 <!--  <img src="images/no_image.png"> -->
+                </div>
+                <div class="text-box-content-list">
+                  <p> </p>
+                  <p> </p>
+                </div>
+                <div class="button-content-list">
+                  <p></p>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="box-content">
+                <div class="img-box-content-list">
+                 <!--  <img src="images/no_image.png"> -->
+                </div>
+                <div class="text-box-content-list">
+                  <p> </p>
+                  <p> </p>
+                </div>
+                <div class="button-content-list">
+                  <p></p>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="box-content">
+                <div class="img-box-content-list">
+                 <!--  <img src="images/no_image.png"> -->
+                </div>
+                <div class="text-box-content-list">
+                  <p> </p>
+                  <p> </p>
+                </div>
+                <div class="button-content-list">
+                  <p></p>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="box-content">
+                <div class="img-box-content-list">
+                 <!--  <img src="images/no_image.png"> -->
+                </div>
+                <div class="text-box-content-list">
+                  <p> </p>
+                  <p> </p>
+                </div>
+                <div class="button-content-list">
+                  <p></p>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="box-content">
+                <div class="img-box-content-list">
+                 <!--  <img src="images/no_image.png"> -->
+                </div>
+                <div class="text-box-content-list">
+                  <p> </p>
+                  <p> </p>
+                </div>
+                <div class="button-content-list">
+                  <p></p>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="box-content">
+                <div class="img-box-content-list">
+                 <!--  <img src="images/no_image.png"> -->
+                </div>
+                <div class="text-box-content-list">
+                  <p> </p>
+                  <p> </p>
+                </div>
+                <div class="button-content-list">
+                  <p></p>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="box-content">
+                <div class="img-box-content-list">
+                 <!--  <img src="images/no_image.png"> -->
+                </div>
+                <div class="text-box-content-list">
+                  <p> </p>
+                  <p> </p>
+                </div>
+                <div class="button-content-list">
+                  <p></p>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="box-content">
+                <div class="img-box-content-list">
+                 <!--  <img src="images/no_image.png"> -->
+                </div>
+                <div class="text-box-content-list">
+                  <p> </p>
+                  <p> </p>
+                </div>
+                <div class="button-content-list">
+                  <p></p>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+
+            </div>
+          </div>
+          <!-- end:  page list-->
+      </div>
     <script type="text/javascript">
       function button_back()
       {
-        var box_list = document.getElementByName("box-list");
+        /*hidden header*/
+        document.getElementById("header").className = "header hidden-header";
+        document.getElementById("title").className = "title ";
+        
 
+        /*hidden page list*/
+        document.getElementById("box-list").className = "box-list false";
+
+        /*show page home*/
+        document.getElementById("box-home").className = "box-home true";
+      }
+
+      function button_play()
+      {
+        /*show header*/
+        document.getElementById("header").className = "header";
+        document.getElementById("title").className = "title title_active";
+
+        /*show page list*/
+        document.getElementById("box-list").className = "box-list true";
+
+        /*hidden page home*/
+        document.getElementById("box-home").className = "box-home false";
       }
     </script>
   </body>
