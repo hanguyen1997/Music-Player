@@ -3,6 +3,7 @@
     position: relative;
     text-align: center;
     padding: 0px 20px 0px 20px;
+    animation: 1s cubic-bezier(0.08, 1.04, 0.1, 1.22) 0s 1 FromLeftBoxList
 }
 .header-list h1{
     font-size: 25px;
@@ -67,4 +68,12 @@
     -webkit-line-clamp: 1;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+}
+@keyframes FromLeftBoxList {
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

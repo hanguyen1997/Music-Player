@@ -2,10 +2,10 @@
     display: none;
 }
 .header-home h1{
-   animation: 1s ease-out 0s 1 FromTop;
+    animation: 1s cubic-bezier(0, 1.02, 0.8, 1.06) 0s 1 FromLeft;
 }
 .header-home p{
-   animation: 1s ease-out 0s 1 FromTop;
+   animation: 1s cubic-bezier(0, 1.02, 0.8, 1.06) 0s 1 FromRight;
 }
 .icon_play_home{
     margin-top: 40px;
@@ -13,10 +13,10 @@
 .icon_play_home i{
 	font-size: 250px;
 	border-radius: 120px;
-    animation: 1s ease-out 0s 1 FromTop;
+    animation: 1s cubic-bezier(0, 1.02, 0.8, 1.06) 0s 1 FromTop;
 }
 .icon_play_home i:hover{
-    background-color: #c7bebe;
+    background-color: #c6ccd1;
     box-shadow: -1px 17px 24px -6px rgba(0,0,0,.2);
 }
 .header-home{
@@ -31,12 +31,12 @@
     color: #b9b9b9;
     margin-left: 35px;
     float: left;
-    animation: 1s ease-out 0s 1 FromTop;
+    animation: 1s cubic-bezier(0, 1.02, 0.8, 1.06) 0s 1 FromTop;
 }
 .soundcloud a i{
 	font-size: 60px;
     color: #b9b9b9;
     margin-right: 35px;
     float: right;
-    animation: 1s ease-out 0s 1 FromTop;
+    animation: 1s cubic-bezier(0, 1.02, 0.8, 1.06) 0s 1 FromTop;
 }

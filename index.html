@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/list.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/detail_song.css" />
     <link rel="shortcut icon" href="images/logo.gif">
     <title>Music Player</title>
   </head>
@@ -20,18 +22,20 @@
   		<div class="box">
         <!-- header -->
         <div id="header" class="header hidden-header">
-          <div onclick="button_back()" class="button-back">
+          <div onclick="button_back_page()" id="back" class="button-back home">
             <i class="fas fa-long-arrow-alt-left"></i>
             <!-- <img onclick="button_back()" src="images/back.png"> -->
           </div>
           <div class="text-header">
-            <p id="title" class="title" >Play List</p>
+            <p id="title" class="title">Play List</p>
           </div>
-          <div class="button-about">
+          <div onclick="button_show_about()" id="about" class="button-about">
             <i class="far fa-address-card"></i>
           </div>
+          <div onclick="button_play()" id="clear" class="button-clear false">
+            <i class="fas fa-times"></i>
+          </div>
         </div>
-
         <!-- content -->
         <div class="content">
           <!-- begin: home -->
@@ -57,7 +61,6 @@
               </div>
             </div>
           </div>
-          <!-- end: home -->
 
           <!-- begin: page list -->
           <div id="box-list" class="box-list false">
@@ -66,7 +69,7 @@
               <p>by HaNguyen</p>
             </div>
             <div class="content-list">
-              <div class="box-content">
+              <div onclick="play_song()" class="box-content">
                 <div class="img-box-content-list">
                   <img src="https://i1.sndcdn.com/artworks-000516994095-x8z6us-t500x500.jpg">
                 </div>
@@ -77,151 +80,61 @@
                
                 <div class="clear"></div>
               </div>
-
-              <div class="box-content">
-                <div class="img-box-content-list">
-                 <!--  <img src="images/no_image.png"> -->
-                </div>
-                <div class="text-box-content-list">
-                  <p> </p>
-                  <p> </p>
-                </div>
-                <div class="button-content-list">
-                  <p></p>
-                </div>
-                <div class="clear"></div>
-              </div>
-
-              <div class="box-content">
-                <div class="img-box-content-list">
-                 <!--  <img src="images/no_image.png"> -->
-                </div>
-                <div class="text-box-content-list">
-                  <p> </p>
-                  <p> </p>
-                </div>
-                <div class="button-content-list">
-                  <p></p>
-                </div>
-                <div class="clear"></div>
-              </div>
-
-              <div class="box-content">
-                <div class="img-box-content-list">
-                 <!--  <img src="images/no_image.png"> -->
-                </div>
-                <div class="text-box-content-list">
-                  <p> </p>
-                  <p> </p>
-                </div>
-                <div class="button-content-list">
-                  <p></p>
-                </div>
-                <div class="clear"></div>
-              </div>
-
-              <div class="box-content">
-                <div class="img-box-content-list">
-                 <!--  <img src="images/no_image.png"> -->
-                </div>
-                <div class="text-box-content-list">
-                  <p> </p>
-                  <p> </p>
-                </div>
-                <div class="button-content-list">
-                  <p></p>
-                </div>
-                <div class="clear"></div>
-              </div>
-
-              <div class="box-content">
-                <div class="img-box-content-list">
-                 <!--  <img src="images/no_image.png"> -->
-                </div>
-                <div class="text-box-content-list">
-                  <p> </p>
-                  <p> </p>
-                </div>
-                <div class="button-content-list">
-                  <p></p>
-                </div>
-                <div class="clear"></div>
-              </div>
-
-              <div class="box-content">
-                <div class="img-box-content-list">
-                 <!--  <img src="images/no_image.png"> -->
-                </div>
-                <div class="text-box-content-list">
-                  <p> </p>
-                  <p> </p>
-                </div>
-                <div class="button-content-list">
-                  <p></p>
-                </div>
-                <div class="clear"></div>
-              </div>
-
-              <div class="box-content">
-                <div class="img-box-content-list">
-                 <!--  <img src="images/no_image.png"> -->
-                </div>
-                <div class="text-box-content-list">
-                  <p> </p>
-                  <p> </p>
-                </div>
-                <div class="button-content-list">
-                  <p></p>
-                </div>
-                <div class="clear"></div>
-              </div>
-
-              <div class="box-content">
-                <div class="img-box-content-list">
-                 <!--  <img src="images/no_image.png"> -->
-                </div>
-                <div class="text-box-content-list">
-                  <p> </p>
-                  <p> </p>
-                </div>
-                <div class="button-content-list">
-                  <p></p>
-                </div>
-                <div class="clear"></div>
-              </div>
-
-
             </div>
           </div>
-          <!-- end:  page list-->
+
+          <!-- begin: about -->
+          <div id="box-about" class="box-about false">
+            <div class="header_about">
+              <h1>Music Player</h1>
+              <p>This is a personal project built in my spare time for learning purposes.</p>
+            </div>
+            <div class="credit_about">
+              <h2>Credits:</h2>
+              <ul>
+                <li>Design by <a href="https://github.com/hanguyen1997">HaNguyen</a></li>
+                <li>Songs API by <a href="https://developers.soundcloud.com/docs/api">Soundcloud</a></li>
+                <li>Link icon by <a href="https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use">Font Awesome</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- begin: page detail song -->
+          <div id="box-detail-song" class="box-detail-song false">
+            <div class="img-detail-song">
+              <img class="img-logo" src="https://i1.sndcdn.com/artworks-000516994095-x8z6us-t500x500.jpg">
+            </div>
+            <div class="content-detail-song">
+              <div class="detail-song">
+                <h1>Đội Kèn Tí Hon Remix 2019</h1>
+                <p>Prod By TiLo Ft Long Nhật Ft Chivas Nhí</p>
+              </div>
+              <div class="box-controls">
+                <div class="progress-bar">
+                  <input type="range" class="progress" value="0" min="0" max="0">
+                </div>
+                <div class="detail-timing">
+                  <time class="left-time">00:06</time>
+                  <time class="right-time">00:06</time>
+                  <div class="clear"></div>
+                </div>
+                <div class="detail-butttons">
+                  <div class="previous-song">
+                    <i class="fas fa-backward"></i>
+                  </div>
+                  <div class="pause-play-song">
+                    <i id="play" class="fas fa-play"></i>
+                    <i id="pause" style="display: none" class="fas fa-pause"></i>
+                  </div>
+                  <div class="next-song">
+                    <i class="fas fa-forward"></i>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
-    <script type="text/javascript">
-      function button_back()
-      {
-        /*hidden header*/
-        document.getElementById("header").className = "header hidden-header";
-        document.getElementById("title").className = "title ";
-        
-
-        /*hidden page list*/
-        document.getElementById("box-list").className = "box-list false";
-
-        /*show page home*/
-        document.getElementById("box-home").className = "box-home true";
-      }
-
-      function button_play()
-      {
-        /*show header*/
-        document.getElementById("header").className = "header";
-        document.getElementById("title").className = "title title_active";
-
-        /*show page list*/
-        document.getElementById("box-list").className = "box-list true";
-
-        /*hidden page home*/
-        document.getElementById("box-home").className = "box-home false";
-      }
-    </script>
+    <script type="text/javascript" src="js/index.js" ></script>
   </body>
 </html>

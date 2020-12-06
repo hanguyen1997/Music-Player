@@ -1,0 +1,92 @@
+.box-detail-song{
+	padding: 0px 20px;
+    animation: 1s cubic-bezier(0, 1.02, 0.8, 1.06) 0s 1 FromRightBoxDetail;
+}
+.img-detail-song{
+	width: 315px;
+    height: 315px;
+}
+.img-detail-song img{
+	width: 100%;
+	object-fit: cover;
+	-webkit-border-radius: 50%;
+}
+.content-detail-song{
+	text-align: center;
+}
+.detail-song h1{
+	overflow: hidden;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    margin: 5px 0px;
+}
+.detail-song p{
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.progress-bar{
+    width: 100%;
+    height: 20px;
+    margin: 10px 0px;
+}
+.box-controls{
+    width: 100%;
+    height: auto;
+}
+.detail-timing{
+    color: #585858;
+}
+.left-time{
+    float: left;
+}
+.right-time{
+    float: right;
+}
+.progress{
+    width: 100%;
+    height: 4px;
+    outline: none;
+    background: #aaa;
+    overflow: hidden;
+}
+.detail-butttons{
+    width: 100%;
+    height: auto;
+    font-size: 60px;
+    margin: 35px 0px;
+}
+.previous-song{
+    width: 20%;
+    float: left;
+}
+.pause-play-song{
+    width: 60%;
+    float: left;
+}
+.next-song{
+    float: right;
+}
+.img-logo{
+  animation: img-logo-song infinite 25s linear
+}
+
+@keyframes img-logo-song {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes FromRightBoxDetail {
+  0% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

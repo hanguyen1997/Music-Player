@@ -1,0 +1,7 @@
+.box-about{
+	box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    animation: 1s cubic-bezier(0, 1.02, 0.8, 1.06) 0s 1 FromRightBoxDetail;
+}
