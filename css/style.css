@@ -39,7 +39,7 @@ a{
     width: 355px;
     background-color: #f2f7fd;
     border-radius: 35px;
-    height: 700px;
+    height: 670px;
     box-shadow: -1px 17px 24px -6px rgba(0,0,0,.2);
 }
 .true {
@@ -154,9 +154,15 @@ a{
 }
 @keyframes FromTop {
   0% {
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    background-color: lightblue;
   }
 }

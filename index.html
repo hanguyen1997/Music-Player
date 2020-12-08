@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="icon-font/fontawesome/css/all.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/home.css" />
@@ -16,7 +17,7 @@
   <body>
     <!-- audio -->
     <div class="audio">
-      <audio></audio>
+      <audio id="audio" crossorigin="anonymous" src="https://api.soundcloud.com/tracks/35814195/stream?client_id=aba2c7918a43ab0cc467124cfc00a9c7"></audio>
     </div>
     <div class="container">
   		<div class="box">
@@ -68,18 +69,9 @@
               <h1>Bring music to life</h1>
               <p>by HaNguyen</p>
             </div>
-            <div class="content-list">
-              <div onclick="play_song()" class="box-content">
-                <div class="img-box-content-list">
-                  <img src="https://i1.sndcdn.com/artworks-000516994095-x8z6us-t500x500.jpg">
-                </div>
-                <div class="text-box-content-list">
-                  <p class="title-song">Đội Kèn Tí Hon Remix 2019</p>
-                  <p class="composed">Prod By TiLo Ft Long Nhật Ft Chivas Nhí</p>
-                </div>
-               
-                <div class="clear"></div>
-              </div>
+            <div class="content-list" id="content-list">
+              <img class="img-load" src="images/giphy.gif">
+              
             </div>
           </div>
 
@@ -102,12 +94,11 @@
           <!-- begin: page detail song -->
           <div id="box-detail-song" class="box-detail-song false">
             <div class="img-detail-song">
-              <img class="img-logo" src="https://i1.sndcdn.com/artworks-000516994095-x8z6us-t500x500.jpg">
+              <img id="img_song" class="img-logo" src="images/giphy.gif">
             </div>
             <div class="content-detail-song">
-              <div class="detail-song">
-                <h1>Đội Kèn Tí Hon Remix 2019</h1>
-                <p>Prod By TiLo Ft Long Nhật Ft Chivas Nhí</p>
+              <div id="detail_song" class="detail-song">
+                
               </div>
               <div class="box-controls">
                 <div class="progress-bar">

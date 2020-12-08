@@ -7,6 +7,12 @@ var button_back = document.getElementById("back");
 var box_home = document.getElementById("box-home");
 var button_about = document.getElementById("about");
 var button_clear = document.getElementById("clear");
+var img_song = document.getElementById("img_song");
+
+/*client_id*/
+var client_id = "aba2c7918a43ab0cc467124cfc00a9c7";
+
+var audio = document.getElementById("audio");
 
 function button_back_page()
 {
@@ -64,6 +70,8 @@ function button_play()
 
   /*change onclick button back*/
   button_back.className  = "button-back home true";
+
+  this.get_list_song();
 }
 /*end: function button_play()*/
 
@@ -83,8 +91,11 @@ function button_show_about()
 }
 /*end: function button_about()*/
 
-function play_song()
+function play_song($id_song)
 {
+  img_song.src = "images/giphy.gif";
+  detail_song.innerHTML = "";
+
   /*hidden header(clear), page home, list, about*/
   button_clear.className = "button-clear false";
   box_home.className = "box-home false";
@@ -96,5 +107,49 @@ function play_song()
 
   /*change onclick button back*/
   button_back.className  = "button-back list true";
+
+  
+
+  /*get detail song*/
+  this.get_detail_song($id_song);
 }
 /*end: function play_song()*/
+
+function get_list_song(){
+  var api_list_song = "https://api.soundcloud.com/users/192171467/playlists?random=20&client_id="+client_id;
+
+  var content_list = document.getElementById("content-list");
+  var list_song = "";
+  fetch(api_list_song)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      data[0].tracks.forEach(function(tracks)
+      {
+        console.log(tracks);
+        list_song +=
+              "<div onclick='play_song("+tracks.id+")' id='"+tracks.id+"' class='box-content'><div class='img-box-content-list'> <img src='"+tracks.artwork_url+"'></div><div class='text-box-content-list'><p class='title-song'>"+tracks.title+"</p> <p class='composed'>"+tracks.user.username+"</p> </div> <div class='clear'></div></div>";
+      }) 
+      content_list.innerHTML = list_song;
+    })
+}
+
+function get_detail_song($id_song){
+  var api_detail_song = "https://api.soundcloud.com/tracks/"+$id_song+"?client_id="+client_id;
+  var detail_song = document.getElementById("detail_song");
+  fetch(api_detail_song)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      img_song.src = data.artwork_url;
+
+      detail_song.innerHTML = "<h1>"+data.title+"</h1><p>"+data.user.username+"</p>";
+
+      /*play song*/
+      audio.src = "https://api.soundcloud.com/tracks/"+$id_song+"/stream?client_id=aba2c7918a43ab0cc467124cfc00a9c7"
+      audio.play();
+      console.log(data);
+    })
+}

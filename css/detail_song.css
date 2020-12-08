@@ -29,8 +29,7 @@
 }
 .progress-bar{
     width: 100%;
-    height: 20px;
-    margin: 10px 0px;
+    
 }
 .box-controls{
     width: 100%;
@@ -70,7 +69,7 @@
     float: right;
 }
 .img-logo{
-  animation: img-logo-song infinite 25s linear
+  animation: img-logo-song infinite 200s linear
 }
 
 @keyframes img-logo-song {
