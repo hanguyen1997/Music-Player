@@ -105,19 +105,19 @@
                   <input type="range" class="progress" value="0" min="0" max="0">
                 </div>
                 <div class="detail-timing">
-                  <time class="left-time">00:06</time>
-                  <time class="right-time">00:06</time>
+                  <time id="left-time" class="left-time">00:06</time>
+                  <time id="right-time" class="right-time">00:00</time>
                   <div class="clear"></div>
                 </div>
                 <div class="detail-butttons">
-                  <div class="previous-song">
+                  <div id="back-song" class="previous-song">
                     <i class="fas fa-backward"></i>
                   </div>
                   <div class="pause-play-song">
-                    <i id="play" class="fas fa-play"></i>
-                    <i id="pause" style="display: none" class="fas fa-pause"></i>
+                    <i id="play_music" onclick="play_mussic()"  style="display: none"  class="fas fa-play"></i>
+                    <i id="pause_music" onclick="pause_mussic()"  class="fas fa-pause"></i>
                   </div>
-                  <div class="next-song">
+                  <div id="next-song" class="next-song">
                     <i class="fas fa-forward"></i>
                   </div>
                   <div class="clear"></div>
