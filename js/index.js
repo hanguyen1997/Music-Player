@@ -95,7 +95,7 @@ function button_show_about()
 }
 /*end: function button_about()*/
 
-function play_song($id_song)
+function play_song($key_song)
 {
   /*hidden header(clear), page home, list, about*/
   button_clear.className = "button-clear false";
@@ -110,9 +110,9 @@ function play_song($id_song)
   button_back.className  = "button-back list true";
 
   /*get detail song*/
-  if(audio.className != $id_song) 
+  if(audio.className != $key_song) 
   {
-    this.get_detail_song($id_song);
+    this.get_detail_song($key_song);
   }
 }
 /*end: function play_song()*/
@@ -123,7 +123,7 @@ function get_list_song(){
   var content_list = document.getElementById("content-list");
 
   var html_list_song = "";
-  
+  var num = 1;
   fetch(api_list_song)
     .then(response => {
       return response.json();
@@ -132,47 +132,40 @@ function get_list_song(){
       
       data[0].tracks.forEach(function(tracks)
       {
-        list_song[tracks.id] = tracks;
+        key_num = num++
+        list_song[key_num] = tracks;
         html_list_song +=
-              "<div onclick='play_song("+tracks.id+")' id='"+tracks.id+"' class='box-content'><div class='img-box-content-list'> <img src='"+tracks.artwork_url+"'></div><div class='text-box-content-list'><p class='title-song'>"+tracks.title+"</p> <p class='composed'>"+tracks.user.username+"</p> </div> <div class='clear'></div></div>";
+              "<div onclick='play_song("+key_num+")' id='"+key_num+"' class='box-content'><div class='img-box-content-list'> <img src='"+tracks.artwork_url+"'></div><div class='text-box-content-list'><p class='title-song'>"+tracks.title+"</p> <p class='composed'>"+tracks.user.username+"</p> </div> <div class='clear'></div></div>";
       }) 
       content_list.innerHTML = html_list_song;
     })
-  console.log(list_song);
 }
 /*function get_list_song()*/
 
-function get_detail_song($id_song){
-  var api_detail_song = "https://api.soundcloud.com/tracks/"+$id_song+"?client_id="+client_id;
-  var detail_song = document.getElementById("detail_song");
-  audio.className = $id_song;
+function get_detail_song($key_song){
+
+  if(list_song[$key_song]) $key_song = $key_song;
+  else $key_song = 1;
+
+  detail_song = list_song[$key_song];
+  var box_detail_song = document.getElementById("detail_song");
+  audio.className = $key_song;
 
   img_song.src = "images/giphy.gif";
-  detail_song.innerHTML = "";
+  box_detail_song.innerHTML = "";
 
-  fetch(api_detail_song)
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
+  /*replace character path image*/
+  artwork_url =  detail_song.artwork_url.replace("large", "t500x500");
+  img_song.src = artwork_url;
 
-      /*replace character path image*/
-      artwork_url =  data.artwork_url.replace("large", "t500x500");
-      img_song.src = artwork_url;
+  /*set title, desc song*/
+  box_detail_song.innerHTML = "<h1>"+detail_song.title+"</h1><p>"+detail_song.user.username+"</p>";
+  button_next_song.innerHTML = "<i onclick='next_song("+$key_song+")' class='fas fa-forward'></i>";
+  button_back_song.innerHTML = "<i onclick='back_song("+$key_song+")' class='fas fa-backward'></i>";
 
-      /*set title, desc song*/
-      detail_song.innerHTML = "<h1>"+data.title+"</h1><p>"+data.user.username+"</p>";
-
-      this.set_time_song(data);
-
-      button_next_song.innerHTML = "<i onclick='next_song("+$id_song+")' class='fas fa-forward'></i>";
-
-      button_back_song.innerHTML = "<i onclick='back_song("+$id_song+")' class='fas fa-backward'></i>";
-
-      /*play song*/
-      audio.src = "https://api.soundcloud.com/tracks/"+$id_song+"/stream?client_id=aba2c7918a43ab0cc467124cfc00a9c7"
-      this.play_mussic();
-    })
+  /*play song*/
+  audio.src = "https://api.soundcloud.com/tracks/"+detail_song.id+"/stream?client_id=aba2c7918a43ab0cc467124cfc00a9c7"
+  this.play_mussic();
 }
 /*end: function get_detail_song($id_song)*/
 
@@ -190,14 +183,6 @@ function play_mussic(){
   audio.play();
 }
 /*end: function play_mussic()*/
-
-function next_song($id_song){
-  console.log("next");
-}
-
-function back_song($id_song){
-  console.log("back");
-}
 
 function set_time_song(data){
   /*milis*/
@@ -226,3 +211,22 @@ function set_time_song(data){
 }
 /*end: function set_time_song(data)*/
 
+function next_song($key_song){
+
+  // Get the details of the next person
+  var nextKey = $key_song+1;
+  
+  get_detail_song(nextKey);
+}
+/*end: function next_song($id_song)*/
+
+
+function back_song($key_song){
+
+  // Get the details of the next person
+  var backKey = $key_song-1;
+  
+  get_detail_song(backKey);
+ 
+}
+/*end: function back_song($id_song)*/

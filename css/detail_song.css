@@ -14,6 +14,9 @@
 .content-detail-song{
 	text-align: center;
 }
+.detail-song{
+  height: 110px;
+}
 .detail-song h1{
 	overflow: hidden;
     -webkit-line-clamp: 2;
