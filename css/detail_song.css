@@ -58,7 +58,11 @@
     width: 100%;
     height: auto;
     font-size: 60px;
-    margin: 35px 0px;
+    margin: 10px 0px;
+    color: #c6ccd1;
+}
+.detail-butttons i:hover{
+  color: #343030;
 }
 .previous-song{
     width: 20%;
@@ -92,3 +96,4 @@
     transform: translateX(0);
   }
 }
+

@@ -11,14 +11,10 @@
     margin-top: 40px;
 }
 .icon_play_home i{
-	font-size: 250px;
+	font-size: 200px;
 	border-radius: 120px;
-    animation: 1s cubic-bezier(0, 1.02, 0.8, 1.06) 0s 1 FromTop;
 }
-.icon_play_home i:hover{
-    background-color: #c6ccd1;
-    box-shadow: -1px 17px 24px -6px rgba(0,0,0,.2);
-}
+
 .header-home{
 	width: 100%;
     text-align: center;
@@ -40,3 +36,58 @@
     float: right;
     animation: 1s cubic-bezier(0, 1.02, 0.8, 1.06) 0s 1 FromTop;
 }
+
+
+.play-btn {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  margin: 23%;
+  box-shadow: 0px 0px 25px 3px rgb(161 146 153 / 80%);
+}
+
+/* pulse wave */
+.play-btn:before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation: pulsate1 2s;
+  animation: pulsate1 2s;
+  -webkit-animation-direction: forwards;
+  animation-direction: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: steps;
+  animation-timing-function: steps;
+  opacity: 1;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, .75);
+  top: -27%;
+  left: -27%;
+  background: rgba(198, 16, 0, 0);
+}
+
+
+
+@keyframes pulsate1 {
+  0% {
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 1;
+    box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1);
+    opacity: 0;
+    box-shadow: none;
+
+  }
+}
+
+

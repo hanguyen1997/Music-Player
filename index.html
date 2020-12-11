@@ -28,7 +28,7 @@
             <!-- <img onclick="button_back()" src="images/back.png"> -->
           </div>
           <div class="text-header">
-            <p id="title" class="title">Play List</p>
+            <p id="title" class="title">Music Player</p>
           </div>
           <div onclick="button_show_about()" id="about" class="button-about">
             <i class="far fa-address-card"></i>
@@ -46,7 +46,7 @@
               <h1>Music Player</h1>
               <p>made with SoundCloud API</p>
               <div class="icon_play_home">
-                <i onclick="button_play()" class="fas fa-play-circle"></i>
+                <span onclick="button_play()" class="play-btn" ><i  class="fas fa-play-circle"></i></span>
               </div>
             </div>
             <div class="footer_home">
@@ -102,10 +102,10 @@
               </div>
               <div class="box-controls">
                 <div class="progress-bar">
-                  <input type="range" class="progress" value="0" min="0" max="0">
+                  <input type="range" id="progress-bar-size" class="progress" value="0" min="0" max="100">
                 </div>
                 <div class="detail-timing">
-                  <time id="left-time" class="left-time">00:06</time>
+                  <time id="left-time" class="left-time">00:00</time>
                   <time id="right-time" class="right-time">00:00</time>
                   <div class="clear"></div>
                 </div>
@@ -114,10 +114,10 @@
                     <i class="fas fa-backward"></i>
                   </div>
                   <div class="pause-play-song">
-                    <i id="play_music" onclick="play_mussic()"  style="display: none"  class="fas fa-play"></i>
-                    <i id="pause_music" onclick="pause_mussic()"  class="fas fa-pause"></i>
+                    <i id="play_music" onclick="play_mussic()" style="padding-left: 10px;display: none"  class="fas fa-play"></i>
+                    <i id="pause_music" onclick="pause_mussic()" class="fas fa-pause"></i>
                   </div>
-                  <div id="next-song" class="next-song">
+                  <div  id="next-song" class="next-song">
                     <i class="fas fa-forward"></i>
                   </div>
                   <div class="clear"></div>

@@ -3,7 +3,7 @@
     position: relative;
     text-align: center;
     padding: 0px 20px 0px 20px;
-    animation: 1s cubic-bezier(0.08, 1.04, 0.1, 1.22) 0s 1 FromLeftBoxList
+    animation: 1s cubic-bezier(0.35, 0.96, 0, 0.96) 0s 1 FromLeftBoxList;
 }
 .header-list h1{
     font-size: 25px;

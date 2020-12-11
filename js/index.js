@@ -134,8 +134,9 @@ function get_list_song(){
       {
         key_num = num++
         list_song[key_num] = tracks;
+        list_song[key_num]["key"] = key_num;
         html_list_song +=
-              "<div onclick='play_song("+key_num+")' id='"+key_num+"' class='box-content'><div class='img-box-content-list'> <img src='"+tracks.artwork_url+"'></div><div class='text-box-content-list'><p class='title-song'>"+tracks.title+"</p> <p class='composed'>"+tracks.user.username+"</p> </div> <div class='clear'></div></div>";
+              "<div onclick='play_song("+key_num+")'  class='box-content'><div class='img-box-content-list'> <img src='"+tracks.artwork_url+"'></div><div class='text-box-content-list'><p class='title-song'>"+tracks.title+"</p> <p class='composed'>"+tracks.user.username+" <div id='"+key_num+"' class='key_active'></div></div></p><div class='clear'></div></div>";
       }) 
       content_list.innerHTML = html_list_song;
     })
@@ -143,9 +144,9 @@ function get_list_song(){
 /*function get_list_song()*/
 
 function get_detail_song($key_song){
+  
 
-  if(list_song[$key_song]) $key_song = $key_song;
-  else $key_song = 1;
+  if(!list_song[$key_song]) $key_song = 1;
 
   detail_song = list_song[$key_song];
   var box_detail_song = document.getElementById("detail_song");
@@ -162,12 +163,87 @@ function get_detail_song($key_song){
   box_detail_song.innerHTML = "<h1>"+detail_song.title+"</h1><p>"+detail_song.user.username+"</p>";
   button_next_song.innerHTML = "<i onclick='next_song("+$key_song+")' class='fas fa-forward'></i>";
   button_back_song.innerHTML = "<i onclick='back_song("+$key_song+")' class='fas fa-backward'></i>";
-
+  
   /*play song*/
   audio.src = "https://api.soundcloud.com/tracks/"+detail_song.id+"/stream?client_id=aba2c7918a43ab0cc467124cfc00a9c7"
   this.play_mussic();
+
+  this.set_time_song(detail_song);
+  /*Assign an ontimeupdate event to the video element, and execute a function if the current playback position has changed*/
+  audio.ontimeupdate = function() {update_time(detail_song)};
+
+  // document.getElementById($key_song).innerHTML = "<input type='range' id='progress-bar-size' class='progress' min='0' max='100'>";
 }
 /*end: function get_detail_song($id_song)*/
+  
+function update_time(detail_song) {
+
+  /*s*/
+  real_s = audio.currentTime;
+  d = Number(real_s);
+  var h = Math.floor(d / 3600);
+  var m = Math.floor(d % 3600 / 60);
+  var s = Math.floor(d % 3600 % 60);
+
+  var hDisplay = h > 0 ? h + (h == 1 ? "" : "") : "";
+  var mDisplay = m > 0 ? m + (m == 1 ? "" : "") : "";
+  var sDisplay = s > 0 ? s + (s == 1 ? "" : "") : "";
+
+  /*h*/
+  if(hDisplay == "") hDisplay = "";
+  if(hDisplay < 10 && hDisplay != "") hDisplay = "0"+hDisplay+":";
+
+  /*m*/
+  if(mDisplay == "") mDisplay = "00:";
+  if(mDisplay < 10 && mDisplay > 0) mDisplay = "0"+mDisplay+":";
+
+  /*s*/
+  if(sDisplay == "" ) sDisplay = "00";
+  if(sDisplay < 10 && sDisplay > 0) sDisplay = "0"+sDisplay;
+
+  real_time =  hDisplay + mDisplay + sDisplay; 
+
+  // Display the current position of the video in a p element with id="demo"
+  document.getElementById("left-time").innerHTML = real_time;
+
+  maxsize = document.getElementById("progress-bar-size").max;
+  size = ((real_s*1000)*100)/detail_song.duration;
+
+  document.getElementById("progress-bar-size").value = size;
+
+  if(size > 99.8) this.next_song(detail_song.key);
+
+}
+/*end: function update_time() */
+
+function set_time_song(data){
+  /*milis(ms)*/
+  millisec = data.duration;
+  var seconds = (millisec / 1000).toFixed(0);
+  var minutes = Math.floor(seconds / 60);
+  var hours = "";
+  if (minutes > 59) {
+      hours = Math.floor(minutes / 60);
+      hours = (hours >= 10) ? hours : "0" + hours;
+      minutes = minutes - (hours * 60);
+      minutes = (minutes >= 10) ? minutes : "0" + minutes;
+  }
+  /*end: if (minutes > 59)*/
+
+  seconds = Math.floor(seconds % 60);
+  seconds = (seconds >= 10) ? seconds : "0" + seconds;
+  if (hours != "") {
+      return hours + ":" + minutes + ":" + seconds;
+  }
+  /*end: if (hours != "")*/
+
+  if(minutes < 10) minutes = "0"+minutes;
+  minutes_song =  minutes + ":" + seconds;
+
+  /*set time right*/
+  document.getElementById("right-time").innerHTML = minutes_song;
+}
+/*end: function set_time_song(data)*/
 
 /*play mussic*/
 function pause_mussic(){
@@ -184,49 +260,16 @@ function play_mussic(){
 }
 /*end: function play_mussic()*/
 
-function set_time_song(data){
-  /*milis*/
-  millisec = data.duration;
-  var seconds = (millisec / 1000).toFixed(0);
-  var minutes = Math.floor(seconds / 60);
-  var hours = "";
-  if (minutes > 59) {
-      hours = Math.floor(minutes / 60);
-      hours = (hours >= 10) ? hours : "0" + hours;
-      minutes = minutes - (hours * 60);
-      minutes = (minutes >= 10) ? minutes : "0" + minutes;
-  }
-  seconds = Math.floor(seconds % 60);
-  seconds = (seconds >= 10) ? seconds : "0" + seconds;
-  if (hours != "") {
-      return hours + ":" + minutes + ":" + seconds;
-  }
-  minutes =  minutes + ":" + seconds;
-
-  /*set time right*/
-  document.getElementById("right-time").innerHTML = minutes;
-
-  console.log(data.duration);
-  // var size = parseInt(data.duration*)
-}
-/*end: function set_time_song(data)*/
 
 function next_song($key_song){
-
-  // Get the details of the next person
   var nextKey = $key_song+1;
-  
   get_detail_song(nextKey);
 }
 /*end: function next_song($id_song)*/
 
 
 function back_song($key_song){
-
-  // Get the details of the next person
   var backKey = $key_song-1;
-  
   get_detail_song(backKey);
- 
 }
 /*end: function back_song($id_song)*/
