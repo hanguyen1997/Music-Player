@@ -12,11 +12,10 @@ var button_pause_mussic = document.getElementById("pause_music");
 var button_play_mussic = document.getElementById("play_music");
 var button_next_song = document.getElementById("next-song");
 var button_back_song = document.getElementById("back-song");
+var audio = document.getElementById("audio");
 
 /*client_id*/
 var client_id = "aba2c7918a43ab0cc467124cfc00a9c7";
-
-var audio = document.getElementById("audio");
 
 function button_back_page()
 {
@@ -57,7 +56,7 @@ function button_back_page()
 }
 /*end: function button_back()*/
 
-function button_play()
+function button_play(act)
 {
   /*show header(back, title, about), page list*/
   header.className = "header";
@@ -75,9 +74,14 @@ function button_play()
   /*change onclick button back*/
   button_back.className  = "button-back home true";
 
-  this.get_list_song();
+  if(audio.duration > 0 && !audio.paused ) console.log("play");
+  else{
+    audio.className = "";
+    this.get_list_song();
+  }
 }
 /*end: function button_play()*/
+
 
 function button_show_about()
 {
@@ -114,6 +118,7 @@ function play_song($key_song)
   {
     this.get_detail_song($key_song);
   }
+  /*end: if(audio.className != $key_song)*/
 }
 /*end: function play_song()*/
 
@@ -136,7 +141,7 @@ function get_list_song(){
         list_song[key_num] = tracks;
         list_song[key_num]["key"] = key_num;
         html_list_song +=
-              "<div onclick='play_song("+key_num+")'  class='box-content'><div class='img-box-content-list'> <img src='"+tracks.artwork_url+"'></div><div class='text-box-content-list'><p class='title-song'>"+tracks.title+"</p> <p class='composed'>"+tracks.user.username+" <div id='"+key_num+"' class='key_active'></div></div></p><div class='clear'></div></div>";
+        "<div onclick='play_song("+key_num+")'  class='box-content'><div class='img-box-content-list'> <img src='"+tracks.artwork_url+"'></div><div class='text-box-content-list'><p class='title-song'>"+tracks.title+"</p> <p class='composed'>"+tracks.user.username+"<div class='progress-bar'><input type='range' id='"+key_num+"' class='progress-bar_il' value='0' min='0' max='100'></div></div></p><div class='clear'></div></div>";
       }) 
       content_list.innerHTML = html_list_song;
     })
@@ -144,8 +149,15 @@ function get_list_song(){
 /*function get_list_song()*/
 
 function get_detail_song($key_song){
-  
 
+  /*hidden progress bar in list*/
+  var x = document.getElementsByClassName("progress-bar_il");
+  var i;
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = 'none';
+  }
+
+  /*check $key_song in json*/
   if(!list_song[$key_song]) $key_song = 1;
 
   detail_song = list_song[$key_song];
@@ -172,7 +184,9 @@ function get_detail_song($key_song){
   /*Assign an ontimeupdate event to the video element, and execute a function if the current playback position has changed*/
   audio.ontimeupdate = function() {update_time(detail_song)};
 
-  // document.getElementById($key_song).innerHTML = "<input type='range' id='progress-bar-size' class='progress' min='0' max='100'>";
+  /*show progress bar in list*/
+  document.getElementById($key_song).style.display = "block";
+
 }
 /*end: function get_detail_song($id_song)*/
   
@@ -210,9 +224,10 @@ function update_time(detail_song) {
   size = ((real_s*1000)*100)/detail_song.duration;
 
   document.getElementById("progress-bar-size").value = size;
-
+  document.getElementById(detail_song.key).value = size;
+  
+  /*next song*/
   if(size > 99.8) this.next_song(detail_song.key);
-
 }
 /*end: function update_time() */
 
@@ -260,13 +275,11 @@ function play_mussic(){
 }
 /*end: function play_mussic()*/
 
-
 function next_song($key_song){
   var nextKey = $key_song+1;
   get_detail_song(nextKey);
 }
 /*end: function next_song($id_song)*/
-
 
 function back_song($key_song){
   var backKey = $key_song-1;
