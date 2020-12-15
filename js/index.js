@@ -1,100 +1,82 @@
-var header  = document.getElementById("header");
-var box_list = document.getElementById("box-list");
-var box_about = document.getElementById("box-about");
-var title = document.getElementById("title");
-var box_detail_song = document.getElementById("box-detail-song");
-var button_back = document.getElementById("back");
-var box_home = document.getElementById("box-home");
-var button_about = document.getElementById("about");
-var button_clear = document.getElementById("clear");
-var img_song = document.getElementById("img_song");
-var button_pause_mussic = document.getElementById("pause_music");
-var button_play_mussic = document.getElementById("play_music");
-var button_next_song = document.getElementById("next-song");
-var button_back_song = document.getElementById("back-song");
-var audio = document.getElementById("audio");
-
 /*client_id*/
 var client_id = "aba2c7918a43ab0cc467124cfc00a9c7";
 
 function button_back_page()
 {
-  if(button_back.className.startsWith("button-back list"))
+  if(document.getElementById("back").className.startsWith("button-back list"))
   {
     /*show header(back, title, about), page list*/
-    header.className = "header";
-    button_back.className = "button-back true";
-    title.className = "title title_active";
-    button_about.className = "button-about true";
-    box_list.className = "box-list true";
+    document.getElementById("header").className = "header";
+    document.getElementById("back").className = "button-back true";
+    document.getElementById("title").className = "title title_active";
+    document.getElementById("about").className = "button-about true";
+    document.getElementById("box-list").className = "box-list true";
 
     /*hidden header(clear), page home, about, detail-song*/
-    button_clear.className = "button-clear false";
-    box_home.className = "box-home false";
-    box_about.className = "box-about false";
-    box_detail_song.className = "box-detail-song false";
+    document.getElementById("clear").className = "button-clear false";
+    document.getElementById("box-home").className = "box-home false";
+    document.getElementById("box-about").className = "box-about false";
+    document.getElementById("box-detail-song").className = "box-detail-song false";
 
     /*change onclick button back*/
-    button_back.className  = "button-back home true";
+    document.getElementById("back").className  = "button-back home true";
   }
   else{
-    
     /*hidden header, list, about, detail-song*/
-    header.className = "header hidden-header";
-    box_list.className = "box-list false";
-    box_about.className = "box-about false";
-    title.className = "title";
-    box_detail_song.className = "box-detail-song false";
+    document.getElementById("header").className = "header hidden-header";
+    document.getElementById("box-list").className = "box-list false";
+    document.getElementById("box-about").className = "box-about false";
+    document.getElementById("title").className = "title";
+    document.getElementById("box-detail-song").className = "box-detail-song false";
 
     /*show page home*/
-    box_home.className = "box-home home true";
+    document.getElementById("box-home").className = "box-home home true";
 
     /*change onclick button back*/
-    button_back.className  = "button-back home true";
+    document.getElementById("back").className  = "button-back home true";
   }
-  /*end: if(button_back.className == "button-back home" || button_back.className == "button-back")*/
+  /*end: if(document.getElementById("back").className.startsWith("button-back list"))*/
 }
 /*end: function button_back()*/
 
-function button_play(act)
+function button_play()
 {
   /*show header(back, title, about), page list*/
-  header.className = "header";
-  button_back.className = "button-back true";
-  title.className = "title title_active";
-  button_about.className = "button-about true";
-  box_list.className = "box-list true";
+  document.getElementById("header").className = "header";
+  document.getElementById("back").className = "button-back true";
+  document.getElementById("title").className = "title title_active";
+  document.getElementById("about").className = "button-about true";
+  document.getElementById("box-list").className = "box-list true";
 
   /*hidden header(clear), page home, about, detail-song*/
-  button_clear.className = "button-clear false";
-  box_home.className = "box-home false";
-  box_about.className = "box-about false";
-  box_detail_song.className = "box-detail-song false";
+  document.getElementById("clear").className = "button-clear false";
+  document.getElementById("box-home").className = "box-home false";
+  document.getElementById("box-about").className = "box-about false";
+  document.getElementById("box-detail-song").className = "box-detail-song false";
 
   /*change onclick button back*/
-  button_back.className  = "button-back home true";
+  document.getElementById("back").className  = "button-back home true";
 
-  if(audio.duration > 0 && !audio.paused ) console.log("play");
+  if(document.getElementById("audio").duration > 0 && !document.getElementById("audio").paused ) console.log("play");
   else{
-    audio.className = "";
+    document.getElementById("audio").className = "";
     this.get_list_song();
   }
 }
 /*end: function button_play()*/
 
-
 function button_show_about()
 {
   /*hidden header(back, title, about), list, home, detail-song*/
-  button_back.className = "button-back false";
-  title.className = "title false";
-  button_about.className = "button-about false";
-  box_list.className = "box-list false";
-  box_home.className = "box-home false";
-  box_detail_song.className = "box-detail-song false";
+  document.getElementById("back").className = "button-back false";
+  document.getElementById("title").className = "title false";
+  document.getElementById("about").className = "button-about false";
+  document.getElementById("box-list").className = "box-list false";
+  document.getElementById("box-home").className = "box-home false";
+  document.getElementById("box-detail-song").className = "box-detail-song false";
 
   /*show header(clear) page about,*/
-  box_about.className = "box-about true";
+  document.getElementById("box-about").className = "box-about true";
   document.getElementById("clear").className = "button-clear true";
 }
 /*end: function button_about()*/
@@ -102,19 +84,19 @@ function button_show_about()
 function play_song($key_song)
 {
   /*hidden header(clear), page home, list, about*/
-  button_clear.className = "button-clear false";
-  box_home.className = "box-home false";
-  box_list.className = "box-list false";
-  box_about.className = "box-about false";
+  document.getElementById("clear").className = "button-clear false";
+  document.getElementById("box-home").className = "box-home false";
+  document.getElementById("box-list").className = "box-list false";
+  document.getElementById("box-about").className = "box-about false";
   
   /*show page detail song*/
-  box_detail_song.className = "box-detail-song true";
+  document.getElementById("box-detail-song").className = "box-detail-song true";
 
   /*change onclick button back*/
-  button_back.className  = "button-back list true";
+  document.getElementById("back").className  = "button-back list true";
 
   /*get detail song*/
-  if(audio.className != $key_song) 
+  if(document.getElementById("audio").className != $key_song) 
   {
     this.get_detail_song($key_song);
   }
@@ -125,7 +107,6 @@ function play_song($key_song)
 var list_song = {};
 function get_list_song(){
   var api_list_song = "https://api.soundcloud.com/users/192171467/playlists?random=20&client_id="+client_id;
-  var content_list = document.getElementById("content-list");
 
   var html_list_song = "";
   var num = 1;
@@ -143,7 +124,7 @@ function get_list_song(){
         html_list_song +=
         "<div onclick='play_song("+key_num+")'  class='box-content'><div class='img-box-content-list'> <img src='"+tracks.artwork_url+"'></div><div class='text-box-content-list'><p class='title-song'>"+tracks.title+"</p> <p class='composed'>"+tracks.user.username+"<div class='progress-bar'><input type='range' id='"+key_num+"' class='progress-bar_il' value='0' min='0' max='100'></div></div></p><div class='clear'></div></div>";
       }) 
-      content_list.innerHTML = html_list_song;
+      document.getElementById("content-list").innerHTML = html_list_song;
     })
 }
 /*function get_list_song()*/
@@ -161,23 +142,22 @@ function get_detail_song($key_song){
   if(!list_song[$key_song]) $key_song = 1;
 
   detail_song = list_song[$key_song];
-  var box_detail_song = document.getElementById("detail_song");
-  audio.className = $key_song;
+  document.getElementById("audio").className = $key_song;
 
-  img_song.src = "images/giphy.gif";
-  box_detail_song.innerHTML = "";
+  document.getElementById("img_song").src = "images/giphy.gif";
+  document.getElementById("detail_song").innerHTML = "";
 
   /*replace character path image*/
   artwork_url =  detail_song.artwork_url.replace("large", "t500x500");
-  img_song.src = artwork_url;
+  document.getElementById("img_song").src = artwork_url;
 
   /*set title, desc song*/
-  box_detail_song.innerHTML = "<h1>"+detail_song.title+"</h1><p>"+detail_song.user.username+"</p>";
-  button_next_song.innerHTML = "<i onclick='next_song("+$key_song+")' class='fas fa-forward'></i>";
-  button_back_song.innerHTML = "<i onclick='back_song("+$key_song+")' class='fas fa-backward'></i>";
+  document.getElementById("detail_song").innerHTML = "<h1>"+detail_song.title+"</h1><p>"+detail_song.user.username+"</p>";
+  document.getElementById("next-song").innerHTML = "<i onclick='next_song("+$key_song+")' class='fas fa-forward'></i>";
+  document.getElementById("back-song").innerHTML = "<i onclick='back_song("+$key_song+")' class='fas fa-backward'></i>";
   
   /*play song*/
-  audio.src = "https://api.soundcloud.com/tracks/"+detail_song.id+"/stream?client_id=aba2c7918a43ab0cc467124cfc00a9c7"
+  document.getElementById("audio").src = "https://api.soundcloud.com/tracks/"+detail_song.id+"/stream?client_id="+client_id;
   this.play_mussic();
 
   this.set_time_song(detail_song);
@@ -186,14 +166,13 @@ function get_detail_song($key_song){
 
   /*show progress bar in list*/
   document.getElementById($key_song).style.display = "block";
-
 }
 /*end: function get_detail_song($id_song)*/
   
 function update_time(detail_song) {
 
   /*s*/
-  real_s = audio.currentTime;
+  real_s = document.getElementById("audio").currentTime;
   d = Number(real_s);
   var h = Math.floor(d / 3600);
   var m = Math.floor(d % 3600 / 60);
@@ -260,29 +239,26 @@ function set_time_song(data){
 }
 /*end: function set_time_song(data)*/
 
-/*play mussic*/
 function pause_mussic(){
-  button_play_mussic.style.display = "block";
-  button_pause_mussic.style.display = "none";
-  audio.pause();
+  document.getElementById("play_music").style.display = "block";
+  document.getElementById("pause_music").style.display = "none";
+  document.getElementById("audio").pause();
 }
 /*end: function pause_mussic()*/
 
 function play_mussic(){
-  button_play_mussic.style.display = "none";
-  button_pause_mussic.style.display = "block";
-  audio.play();
+  document.getElementById("play_music").style.display = "none";
+  document.getElementById("pause_music").style.display = "block";
+  document.getElementById("audio").play();
 }
 /*end: function play_mussic()*/
 
 function next_song($key_song){
-  var nextKey = $key_song+1;
-  get_detail_song(nextKey);
+  get_detail_song($key_song+1);
 }
 /*end: function next_song($id_song)*/
 
 function back_song($key_song){
-  var backKey = $key_song-1;
-  get_detail_song(backKey);
+  get_detail_song($key_song-1);
 }
 /*end: function back_song($id_song)*/
